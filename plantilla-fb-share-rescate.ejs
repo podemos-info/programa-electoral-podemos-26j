@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>PODEMOS. <%= medida.titulo %></title>
+	<meta property="og:title" content="PODEMOS: <%= medida.titulo %>" />
+	<meta property="og:description" content="<%= medida.descripcion_text %>" />
+	<meta property="og:image" content="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-rescate.png" />
+</head>
+ 
+<body>
+	<script type="text/javascript">
+		var url_base = '/plan-rescate-ciudadano/?medida=<%= medida.num %>';
+		window.location = url_base;
+	</script>
+	<h1><%= medida.titulo %></h1>
+	<div>
+		<%- medida.descripcion %>
+	</div>
+</body>
+ 
+</html>

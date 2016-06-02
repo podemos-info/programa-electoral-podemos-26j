@@ -1,0 +1,190 @@
+  
+<div class="plan-rescate-ciudadano">
+
+    <div>
+        <div class="ramas">
+        <% for (var i=1; i<ejes.length; i++) { %>
+        	<a href="#" class="btn" data-rel="<%= ejes[i].nombre %>"><%= ejes[i].nombre %></a>
+        <% } %>
+        </div>
+    </div>
+
+	<div class="busquedas">
+		<div class="buscar-programa">
+			<i class="fa fa-search"></i>
+			<input id="busca" type="search" placeholder="Buscar en el plan de rescate">
+		</div>
+		<div class="loader-medidas">
+			<span><span id="medidas-visibles"></span> medidas encontradas</span>
+		</div>
+	</div>
+
+	<div class="medidas">
+		<div style="width:100%;height:1px;"></div> 
+	<% medidas.forEach(function(medida){ %>
+		<div id="medida-<%= parseInt(parseFloat(medida.num)*10.0) %>" class="medidas-programa" data-eje="<%= medida.eje %>">
+		    <div class="numero-medida"><%= medida.num %></div>
+		    <div class="titulo-medida">
+		      <h4><%= medida.titulo %></h4>
+		      <div class="descripcion-medida">
+                <%- medida.descripcion %>
+                <div class="social">
+                  <p><strong>¡Comparte esta medida en redes sociales!</strong></p>
+                  <a href=""><i class="fa fa-facebook-official"></i></a>
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+                </div>
+              </div>
+		    </div>
+		</div>
+	<% }); %>
+	</div>
+
+    <div class="categorias-rescate">
+
+		<h3>Open Data</h3>
+		<p><a href="/wp-content/plugins/programa/data/rescate.csv" class="pdf"><i class="fa fa-database"></i> .csv</a></p>
+		<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/zipball/master" class="pdf"><i class="fa fa-archive"></i> .zip</a></p>
+		<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/" class="pdf" target="_blank"><i class="fa fa-github"></i> github</a></p>
+
+        <h3><i class="fa fa-file-pdf-o"></i> Descargas</h3>
+        <p><a href="/wp-content/plugins/programa/data/plan-rescate-ciudadano-podemos.pdf" class="pdf" target=_blank>Plan de rescate ciudadano</a></p>
+
+    </div>
+
+
+</div>
+
+<script>
+
+;(function($) {
+
+  var url_base = document.location.href.split('?')[0];
+
+	var normaliza = (function() {
+	  var from = "ãàáäâèéëêìíïîòóöôùúüû", 
+		  to   = "aaaaaeeeeiiiioooouuuu",
+		  mapping = {};
+	 
+	  for(var i = 0, j = from.length; i < j; i++ )
+		  mapping[ from.charAt( i ) ] = to.charAt( i );
+	 
+	  return function( str ) {
+	      str = str.toLowerCase();
+		  var ret = [];
+		  for( var i = 0, j = str.length; i < j; i++ ) {
+		      var c = str.charAt( i );
+		      if( mapping.hasOwnProperty( str.charAt( i ) ) )
+		          ret.push( mapping[ c ] );
+		      else
+		          ret.push( c );
+		  }      
+		  return ret.join( '' );
+	  }
+	 
+	})();
+
+	function medidas_visibles() {
+		$('#medidas-visibles').html('<i class="fa fa-spinner fa-spin"></i>');
+		setTimeout(function() {
+			$('#medidas-visibles').text($('.medidas-programa:visible').length);
+		}, 800);
+	}
+
+	$('.loader-medidas').hide();
+	medidas_visibles();
+
+	$('#busca').on('keyup', function(e) {
+		$('.loader-medidas').show();
+		var objetivo = normaliza($(this).val());
+		if (objetivo.length == 0) {
+			$('.medidas-programa').fadeIn();
+		}
+		if (objetivo.length >= 4) {
+			$('.medidas-programa').hide();
+			$('.titulo-medida').each(function() {
+				var titulo = normaliza($(this).find('h4').text()+' '+$(this).find('.categoria-medida').text());
+				if (titulo.indexOf(objetivo) >= 0) {
+					$(this).parents('.medidas-programa').fadeIn();
+				}
+			});
+		}
+		medidas_visibles();
+	});
+
+  function get_id(num_bloque) {
+    return parseInt(parseFloat(num_bloque)*10.0);
+  } 
+
+	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
+		var descripcion = $(this).parent().find('.descripcion-medida');
+		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
+	});
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$('.ramas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
+		});
+	});
+  // social
+  $('.social .fa-facebook-official').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var title = encodeURI($(medida).find('.titulo-medida h4').text());
+    var descr = encodeURI($(medida).find('.descripcion-medida').text());
+    var num_medida = $(medida).find('.numero-medida').text();
+	var url = encodeURI('http://lasonrisadeunpais.es/fb-share/rescate/es/'+num_medida+'.html');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  $('.social .fa-twitter').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = $(medida).find('.numero-medida').text();
+    var url = encodeURI('http://lasonrisadeunpais.es/fb-share/rescate/es/'+num_medida+'.html');
+    var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+
+  $('.social .fa-whatsapp').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI('http://lasonrisadeunpais.es/fb-share/rescate/es/'+num_medida+'.html');
+    var texto = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+
+  // devuelve array con las medidas a mostrar
+  function parsear_url() {
+    var medidas = window.location.search;
+    if (medidas.indexOf('medida=') > -1) {
+      medidas=medidas.split('medida=');
+      medidas=[parseFloat(medidas[1])];
+    } else {
+      medidas=[];
+    }
+    return medidas;    
+  }
+  var medidas =  parsear_url();
+  for (i=0; i<medidas.length; i++) {
+    $('.medidas-programa').hide();
+    $('#medida-'+get_id(medidas[i])).fadeIn(function() {
+      $(this).find('.descripcion-medida').delay(800).slideDown();
+    });
+  }
+})(jQuery);
+
+</script>
+
+
+</body>
