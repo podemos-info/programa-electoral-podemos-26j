@@ -4,8 +4,8 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>PODEMOS. <%= medida.titulo %></title>
-	<meta property="og:title" content="PODEMOS: <%= medida.titulo %>" />
+	<title>Podemos - <%= medida.titulo %></title>
+	<meta property="og:title" content="Podemos - <%= medida.titulo %>" />
 	<meta property="og:description" content="<%= medida.descripcion_text %>" />
 	<meta property="og:image" content="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-programa.png" />
 </head>
@@ -15,6 +15,7 @@
 		var url_base = '/<%= idioma %>/programa/?medida=<%= medida.num %>';
 		window.location = url_base;
 	</script>
+	<img src="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-programa.png" alt="Programa PODEMOS" />
 	<h1><%= medida.titulo %></h1>
 	<div>
 		<%- medida.descripcion %>
