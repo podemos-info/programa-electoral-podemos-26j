@@ -55,5 +55,5 @@
 	"Principales propuestas": "Principales propuestas",
 	"Programa en vídeo": "Bideoko programa",
 	"Buscar en el programa": "Bilatu programan",
-	"Pensiones": "Pensiones"
+	"Pensiones": "Pentsioak"
 }

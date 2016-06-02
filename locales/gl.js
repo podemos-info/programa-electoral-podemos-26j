@@ -56,5 +56,5 @@
 	"Principales propuestas": "Principales propuestas",
 	"Programa en vídeo": "Programa en vídeo",
 	"Buscar en el programa": "Buscar no programa",
-	"Pensiones": "Pensiones"
+	"Pensiones": "Pensións"
 }
