@@ -54,5 +54,6 @@
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
 	"Principales propuestas": "Principales propuestas",
 	"Programa en vídeo": "Programa en vídeu",
-	"Buscar en el programa": "Buscar nel programa"
+	"Buscar en el programa": "Buscar nel programa",
+	"Pensiones": "Pensiones"
 }

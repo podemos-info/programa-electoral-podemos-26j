@@ -55,5 +55,6 @@
 	"Democracia Económica": "Democracia Económica",
 	"Temas": "Temas",
 	"Programa en vídeo": "Programa en vídeo",
-	"Buscar en el programa": "Buscar en el programa"
+	"Buscar en el programa": "Buscar en el programa",
+	"Pensiones": "Pensiones"
 }

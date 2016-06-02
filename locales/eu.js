@@ -54,5 +54,6 @@
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
 	"Principales propuestas": "Principales propuestas",
 	"Programa en vídeo": "Bideoko programa",
-	"Buscar en el programa": "Bilatu programan"
+	"Buscar en el programa": "Bilatu programan",
+	"Pensiones": "Pensiones"
 }
