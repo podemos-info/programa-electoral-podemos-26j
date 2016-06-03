@@ -6,7 +6,7 @@
 	<title>Podemos - <%= medida.titulo %></title>
 	<meta property="og:title" content="Podemos - <%= medida.titulo %>" />
 	<meta property="og:description" content="<%= medida.descripcion_text %>" />
-	<meta property="og:image" content="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-rescate.png" />
+	<meta property="og:image" content="<%= url_base %>/wp-content/plugins/programa/data/meta-rescate.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="600" />
 	<meta property="og:image:height" content="315" />
@@ -17,7 +17,7 @@
 		var url_base = '/plan-rescate-ciudadano/?medida=<%= medida.num %>';
 		window.location = url_base;
 	</script>
-	<img src="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-rescate.png" alt="Plan de Rescate Ciudadano PODEMOS" />
+	<img src="<%= url_base %>/wp-content/plugins/programa/data/meta-rescate.png" alt="Plan de Rescate Ciudadano PODEMOS" />
 	<h1><%= medida.titulo %></h1>
 	<div>
 		<%- medida.descripcion %>

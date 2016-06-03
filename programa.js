@@ -21,7 +21,7 @@ locales.forEach(function(idioma) {
 	var DELIMITER = '\t';
 	var PLANTILLA = __dirname + '/plantilla-wp.ejs';
 	var PLANTILLA_FB = __dirname + '/plantilla-fb-share.ejs';
-	var URL_BASE = "http://lasonrisadeunpais.es"
+	var URL_BASE = "http://lasonrisadeunpais.es";
 
 	var etiquetas = require(__dirname + '/data/etiquetas.json');
 	//añadimos slugs

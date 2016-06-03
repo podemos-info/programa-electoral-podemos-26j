@@ -13433,7 +13433,6 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
 
 ;(function($) {
 
-	//var url_base = 'http://unpaiscontigo.es/programa/';
 	var url_base = document.location.href.split('?')[0];
 
 	var normaliza = (function() {
@@ -13466,7 +13465,6 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
 		}, 800);
 	}
 
-	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
 	$('.loader-medidas').hide();
 	medidas_visibles();
 
@@ -13486,7 +13484,6 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
 			});
 		}
 		medidas_visibles();
-		//$('#medidas-visibles').text($('.medidas-programa:visible').length);
 	});
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
@@ -13520,9 +13517,6 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
     e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
-    //var medida = $(this).parents('.medidas-programa');
-    //var num_medida = parseInt($(medida).find('.numero-medida').text());
-	//var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/en/'+num_medida+'.html');
 	var url = encodeURI($(this).attr('href'));
     window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
@@ -13531,19 +13525,15 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    //var num_medida = parseInt($(medida).find('.numero-medida').text());
-    //var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/en/'+num_medida+'.html');
 	var url = encodeURI($(this).attr('href'));
     var tweet = encodeURI($(medida).find('.titulo-medida h4').text() + ' ' + url);
     window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
   $('.social .fa-whatsapp').parent().on('click', function(e) {
-		e.preventDefault();
+	e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    //var num_medida = parseInt($(medida).find('.numero-medida').text());
-    //var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/en/'+num_medida+'.html');
 	var url = encodeURI($(this).attr('href'));
     var texto = encodeURI($(medida).find('.titulo-medida h4').text() + ' ' + url);
     window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
