@@ -18,7 +18,7 @@
 		var url_base = '/<%= idioma %>/programa/?medida=<%= medida.num %>';
 		window.location = url_base;
 	</script>
-	<img src="http://lasonrisadeunpais.es/wp-content/plugins/programa/data/meta-programa.png" alt="Programa PODEMOS" />
+	<img src="<%= url_base %>/wp-content/plugins/programa/data/meta-programa.png" alt="Programa PODEMOS" />
 	<h1><%= medida.titulo %></h1>
 	<div>
 		<%- medida.descripcion %>

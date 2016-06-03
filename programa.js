@@ -21,6 +21,7 @@ locales.forEach(function(idioma) {
 	var DELIMITER = '\t';
 	var PLANTILLA = __dirname + '/plantilla-wp.ejs';
 	var PLANTILLA_FB = __dirname + '/plantilla-fb-share.ejs';
+	var URL_BASE = "http://lasonrisadeunpais.es"
 
 	var etiquetas = require(__dirname + '/data/etiquetas.json');
 	//añadimos slugs
@@ -68,13 +69,25 @@ locales.forEach(function(idioma) {
 				slug: slug(eje).toLowerCase()
 			};
 		});
-		var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas, etiquetas: etiquetas, ejes: ejes, i18n: i18n, idioma: idioma});
+		var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {
+			url_base: URL_BASE,
+			medidas: medidas, 
+			etiquetas: etiquetas, 
+			ejes: ejes, 
+			i18n: i18n, 
+			idioma: idioma
+		});
 		fs.writeFileSync(__dirname+'/web/programa_'+idioma+'.html', pagina);
 		fs.writeFileSync(__dirname+'/web/programa_'+idioma+'.min.html', minify(pagina, { 
 			collapseWhitespace: true, 
 			removeAttributeQuotes: true }));
 		_.each (medidas, function(medida) {
-			pagina = ejs.render(fs.readFileSync(PLANTILLA_FB, "utf8"), {medida: medida, i18n: i18n, idioma: idioma});
+			pagina = ejs.render(fs.readFileSync(PLANTILLA_FB, "utf8"), {
+				url_base: URL_BASE,
+				medida: medida, 
+				i18n: i18n, 
+				idioma: idioma
+			});
 			fs.writeFileSync(__dirname+'/web/fb-share/programa/'+idioma+'/'+medida.num+'.html', pagina);
 		});
 		console.log(idioma);
