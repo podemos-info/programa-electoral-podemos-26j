@@ -56,5 +56,6 @@
 	"Temas": "Temas",
 	"Programa en vídeo": "Programa en vídeo",
 	"Buscar en el programa": "Buscar en el programa",
-	"Pensiones": "Pensiones"
+	"Pensiones": "Pensiones",
+	"50 pasos para gobernar juntos": "50 pasos para gobernar juntos"
 }

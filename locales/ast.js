@@ -55,5 +55,6 @@
 	"Principales propuestas": "Principales propuestas",
 	"Programa en vídeo": "Programa en vídeu",
 	"Buscar en el programa": "Buscar nel programa",
-	"Pensiones": "Pensiones"
+	"Pensiones": "Pensiones",
+	"50 pasos para gobernar juntos": "50 pasos para gobernar juntos"
 }
