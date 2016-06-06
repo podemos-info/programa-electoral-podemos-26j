@@ -13476,6 +13476,9 @@ Obxectivo residuo CERO</h4>
 
     </div>
 
+	<div class="ir-arriba" style="display:none; position:fixed; right: 10px; bottom: 10px;">
+		<i class="fa fa-arrow-up fa-4x"></i>
+	</div>
 
 </div>
 
@@ -13620,6 +13623,20 @@ Obxectivo residuo CERO</h4>
   for (i=0; i<temas.length; i++) {
     $('.categoria-propuestas [data-rel="'+temas[i]+'"]').trigger('click');
   }
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('.ir-arriba').fadeIn();
+    } else {
+      $('.ir-arriba').fadeOut();
+    }
+  });
+
+  $('.ir-arriba').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 800);
+  });
+
 })(jQuery);
 
 </script>
