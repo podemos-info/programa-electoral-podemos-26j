@@ -148,6 +148,7 @@
 			$(this).addClass('activo');
 			$(this).parents('.medidas-programa').fadeIn();
 		});
+		$('html, body').animate({scrollTop: 0}, 800);
 	});
 	$('.ramas a').on('click', function(e) {
 		e.preventDefault();
