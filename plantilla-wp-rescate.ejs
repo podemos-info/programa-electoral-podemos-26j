@@ -52,6 +52,9 @@
 
     </div>
 
+	<div class="ir-arriba" style="display:none; position:fixed; right: 10px; bottom: 10px; cursor: pointer;">
+		<i class="fa fa-arrow-up fa-4x"></i>
+	</div>
 
 </div>
 
@@ -176,6 +179,20 @@
       $(this).find('.descripcion-medida').delay(800).slideDown();
     });
   }
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('.ir-arriba').fadeIn();
+    } else {
+      $('.ir-arriba').fadeOut();
+    }
+  });
+
+  $('.ir-arriba').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 800);
+  });
+
 })(jQuery);
 
 </script>
