@@ -38,6 +38,7 @@
                 <a href="<%= url_base %>/fb-share/programa/<%= idioma %>/<%= medida.num %>.html"><i class="fa fa-facebook-official"></i></a>
                 <a href="<%= url_base %>/fb-share/programa/<%= idioma %>/<%= medida.num %>.html"><i class="fa fa-twitter"></i></a>
                 <a href="<%= url_base %>/fb-share/programa/<%= idioma %>/<%= medida.num %>.html" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+                <a href="<%= url_base %>/fb-share/programa/<%= idioma %>/<%= medida.num %>.html"><i class="fa fa-link"></i></a>
               </div>
             </div>
 		    </div>
@@ -48,16 +49,17 @@
     <div class="categorias-programa">
 
         <h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
-		<p><a href="/wp-content/uploads/2016/06/Podemos-Programa-Electoral-Elecciones-Generales-26J.pdf" class="pdf" target="_blank">Programa electoral "catálogo"</a></p>
+
+		<p class="banner-programa"><a href="/wp-content/uploads/2016/06/Podemos-Programa-Electoral-Elecciones-Generales-26J.pdf" target="_blank"><img src="/wp-content/plugins/programa/data/portada-programa.jpg" alt="Portada Programa PODEMOS" style="width:100%;" /></a></p>
+
+		<p><a href="https://tienda.podemos.info/producto/programa-catalogo-podemos-elecciones-generales-26-j-2016/" class="pdf" target="_blank">Consigue el programa impreso</a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target="_blank"><%= i18n.__("Programa Electoral") %> 20D</a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
         <p><a href="/un-programa-contigo/" class="pdf"><%= i18n.__("Programa en vídeo") %></a></p>
-        <p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de lectura fácil</a></p>
+        <p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de Lectura Fácil</a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-cultura-comunicacion-podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
 		<p><a href="http://podemos.info/wp-content/uploads/2016/05/acuerdo26J_final.pdf" class="pdf" target="_blank"><%= i18n.__("50 pasos para gobernar juntos") %></a></p>
-
-		<p class="banner-programa"><a href="https://tienda.podemos.info/producto/programa-catalogo-podemos-elecciones-generales-26-j-2016/" target="_blank"><img src="/wp-content/plugins/programa/data/banner-programa-en-papel.png" alt="Consigue el programa de Podemos impreso" style="width:100%;" /></a></p>
 
 		<h3>Open Data</h3>
 		<p><a href="/wp-content/plugins/programa/data/programa_<%= idioma %>.csv" class="pdf"><i class="fa fa-database"></i> .csv</a></p>
