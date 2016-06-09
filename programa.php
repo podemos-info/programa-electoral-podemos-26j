@@ -50,3 +50,8 @@ function fn_programa_eu($attrs) {
 }
 add_shortcode( 'programa-eu', 'fn_programa_eu');
 
+function fn_ir_arriba($attrs) {
+  return file_get_contents(ABSPATH."wp-content/plugins/programa/web/ir-arriba.html");
+}
+add_shortcode( 'ir-arriba', 'fn_ir_arriba');
+
