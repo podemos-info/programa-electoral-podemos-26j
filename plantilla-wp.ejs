@@ -9,6 +9,48 @@
         </div>
     </div>
 
+    <div class="categorias-programa">
+
+		<div id="descargas-programa">
+
+        	<h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
+
+			<div id="desplegable-descargas-programa" class="nomovil">
+				<p class="banner-programa"><a href="/wp-content/uploads/2016/06/Podemos-Programa-Electoral-Elecciones-Generales-26J.pdf" target="_blank"><img src="/wp-content/plugins/programa/data/portada-programa.jpg" alt="Portada Programa PODEMOS" style="width:100%;" /></a></p>
+				<p class="banner-programa"><a href="https://tienda.podemos.info/producto/programa-catalogo-podemos-elecciones-generales-26-j-2016/" target="_blank"><img src="/wp-content/plugins/programa/data/banner-programa-en-papel.png" alt="Consigue el programa impreso" style="width:100%;" /></a></p>
+				<p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target="_blank"><%= i18n.__("Programa Electoral") %> 20D</a></p>
+				<p><a href="/wp-content/plugins/programa/data/programa-economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
+				<p><a href="/wp-content/plugins/programa/data/programa-juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
+				<p><a href="/un-programa-contigo/" class="pdf"><%= i18n.__("Programa en vídeo") %></a></p>
+				<p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de Lectura Fácil</a></p>
+				<p><a href="/wp-content/plugins/programa/data/programa-cultura-comunicacion-podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
+				<p><a href="http://podemos.info/wp-content/uploads/2016/05/acuerdo26J_final.pdf" class="pdf" target="_blank"><%= i18n.__("50 pasos para gobernar juntos") %></a></p>
+			</div>
+
+		</div>
+
+		<div id="opendata-programa" class="nomovil">
+
+			<h3>Open Data</h3>
+
+			<p><a href="/wp-content/plugins/programa/data/programa_<%= idioma %>.csv" class="pdf"><i class="fa fa-database"></i> .csv</a></p>
+			<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/zipball/master" class="pdf"><i class="fa fa-archive"></i> .zip</a></p>
+			<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/" class="pdf" target="_blank"><i class="fa fa-github"></i> github</a></p>
+		</div>
+
+		<div id="etiquetas-programa" class="nomovil">
+
+		    <h3><i class="fa fa-book"></i> <%= i18n.__("Temas") %></h3>
+
+		    <div class="categoria-propuestas">
+		    <% etiquetas.forEach(function(categoria) { %>
+		    	<a href="?tema=<%= categoria.slug %>" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>
+		    <% }); %>
+		    </div>
+		</div>
+
+    </div>
+
 	<div class="busquedas">
 		<div class="buscar-programa">
 			<i class="fa fa-search"></i>
@@ -45,36 +87,6 @@
 		</div>
 	<% }); %>
 	</div>
-
-    <div class="categorias-programa">
-
-        <h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
-
-		<p class="banner-programa"><a href="/wp-content/uploads/2016/06/Podemos-Programa-Electoral-Elecciones-Generales-26J.pdf" target="_blank"><img src="/wp-content/plugins/programa/data/portada-programa.jpg" alt="Portada Programa PODEMOS" style="width:100%;" /></a></p>
-		<p class="banner-programa"><a href="https://tienda.podemos.info/producto/programa-catalogo-podemos-elecciones-generales-26-j-2016/" target="_blank"><img src="/wp-content/plugins/programa/data/banner-programa-en-papel.png" alt="Consigue el programa impreso" style="width:100%;" /></a></p>
-
-		<!--<p><a href="https://tienda.podemos.info/producto/programa-catalogo-podemos-elecciones-generales-26-j-2016/" class="pdf" target="_blank">Consigue el programa impreso</a></p>-->
-        <p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target="_blank"><%= i18n.__("Programa Electoral") %> 20D</a></p>
-        <p><a href="/wp-content/plugins/programa/data/programa-economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
-        <p><a href="/wp-content/plugins/programa/data/programa-juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
-        <p><a href="/un-programa-contigo/" class="pdf"><%= i18n.__("Programa en vídeo") %></a></p>
-        <p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de Lectura Fácil</a></p>
-        <p><a href="/wp-content/plugins/programa/data/programa-cultura-comunicacion-podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
-		<p><a href="http://podemos.info/wp-content/uploads/2016/05/acuerdo26J_final.pdf" class="pdf" target="_blank"><%= i18n.__("50 pasos para gobernar juntos") %></a></p>
-
-		<h3>Open Data</h3>
-		<p><a href="/wp-content/plugins/programa/data/programa_<%= idioma %>.csv" class="pdf"><i class="fa fa-database"></i> .csv</a></p>
-		<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/zipball/master" class="pdf"><i class="fa fa-archive"></i> .zip</a></p>
-		<p><a href="https://github.com/podemos-info/programa-electoral-podemos-26j/" class="pdf" target="_blank"><i class="fa fa-github"></i> github</a></p>
-
-        <h3><i class="fa fa-book"></i> <%= i18n.__("Temas") %></h3>
-        <div class="categoria-propuestas">
-        <% etiquetas.forEach(function(categoria) { %>
-        	<a href="?tema=<%= categoria.slug %>" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>
-        <% }); %>
-        </div>
-
-    </div>
 
 	<div class="ir-arriba" style="display:none; position:fixed; right: 10px; bottom: 10px; cursor: pointer;">
 		<i class="fa fa-arrow-up fa-4x"></i>
@@ -236,6 +248,15 @@
   $('.ir-arriba').on('click', function(e) {
     e.preventDefault();
     $('html, body').animate({scrollTop: 0}, 800);
+  });
+
+  $('#descargas-programa h3').on('click', function(e) {
+    e.preventDefault();
+    if ($('#desplegable-descargas-programa').is(':visible')) {
+      $('#desplegable-descargas-programa').slideUp();
+    } else {
+      $('#desplegable-descargas-programa').slideDown();
+    }
   });
 
 })(jQuery);
