@@ -14004,8 +14004,9 @@ L’autorització per poder desenvolupar la solució acordada.</li>
   function dame_temas_url() {
     var temas = window.location.search;
     if (temas.indexOf('tema=') > -1) {
-      temas=temas.split('tema=');
-      temas=[decodeURI(temas[1])];
+      temas=temas.split('tema=')[1];
+      temas=temas.split('&')[0];
+      temas=[decodeURI(temas)];
     } else {
       temas=[];
     }

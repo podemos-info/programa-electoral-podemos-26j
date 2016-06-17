@@ -13928,8 +13928,9 @@ socuenques de los ríos Genil, Fardes y Guadiana Menor.</li>
   function dame_temas_url() {
     var temas = window.location.search;
     if (temas.indexOf('tema=') > -1) {
-      temas=temas.split('tema=');
-      temas=[decodeURI(temas[1])];
+      temas=temas.split('tema=')[1];
+      temas=temas.split('&')[0];
+      temas=[decodeURI(temas)];
     } else {
       temas=[];
     }
